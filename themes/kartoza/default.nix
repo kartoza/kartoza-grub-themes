@@ -1,6 +1,22 @@
-pkgs:
-pkgs.stdenv.mkDerivation {
-  name = "kartoza-grub-theme";
+{ stdenvNoCC, ... }:
+stdenvNoCC.mkDerivation {
+  pname = "kartoza-grub-theme";
+  version = "0.1.0";
+
+  # If your theme files live in ./assets (theme.txt, icons/, etc.)
   src = ./assets;
-  installPhase = "cp -r $src/* $out/";
+
+  # No build system here
+  dontConfigure = true;
+  dontBuild = true;
+
+  # Install to the conventional GRUB themes path
+  installPhase = ''
+    runHook preInstall
+    mkdir -p "$out/share/grub/themes/kartoza"
+    cp -r ./* "$out/share/grub/themes/kartoza/"
+    runHook postInstall
+  '';
+
+  meta.description = "Kartoza GRUB theme";
 }

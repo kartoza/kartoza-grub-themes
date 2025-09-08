@@ -1,5 +1,5 @@
 # GRUB2 gfxmenu Linux theme
-# BigSur theme
+# Kartoza theme
 # Designed for 1920x1080 resolution
 
 desktop-image: "background.png"
