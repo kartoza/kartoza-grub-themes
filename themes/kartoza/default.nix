@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p "$out/share/grub/themes/kartoza"
-    cp -r ./* "$out/share/grub/themes/kartoza/"
+    cp -r $src/* "$out/share/grub/themes/kartoza/"
     runHook postInstall
   '';
 
