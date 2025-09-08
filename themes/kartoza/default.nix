@@ -1,7 +1,7 @@
 { stdenvNoCC, ... }:
 stdenvNoCC.mkDerivation {
   pname = "kartoza-grub-theme";
-  version = "0.1.0";
+  version = "0.2.0";
 
   # If your theme files live in ./assets (theme.txt, icons/, etc.)
   src = ./assets;
@@ -13,8 +13,8 @@ stdenvNoCC.mkDerivation {
   # Install to the conventional GRUB themes path
   installPhase = ''
     runHook preInstall
-    mkdir -p "$out/share/grub/themes/kartoza"
-    cp -r $src/* "$out/share/grub/themes/kartoza/"
+    mkdir -p "$out"
+    cp -r assets/* "$out/"
     runHook postInstall
   '';
 
