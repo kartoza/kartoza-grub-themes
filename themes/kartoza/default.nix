@@ -13,8 +13,9 @@ stdenvNoCC.mkDerivation {
   # Install to the conventional GRUB themes path
   installPhase = ''
     runHook preInstall
+    echo "copying theme from $src to $out"
     mkdir -p "$out"
-    cp -r assets/* "$out/"
+    cp -r $src/* "$out/"
     runHook postInstall
   '';
 
