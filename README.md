@@ -42,32 +42,42 @@ NixOS kartoza-grub-theme is a .... The project includes:
 
 | Badge | Description |
 |-------|-------------|
-| ![License](https://img.shields.io/github/license/timlinux/kartoza-grub-theme.svg) | Repository license |
-| ![Open Issues](https://img.shields.io/github/issues/timlinux/kartoza-grub-theme.svg) | Open issues count |
-| ![Closed Issues](https://img.shields.io/github/issues-closed/timlinux/kartoza-grub-theme.svg) | Closed issues count |
-| ![Open PRs](https://img.shields.io/github/issues-pr/timlinux/kartoza-grub-theme.svg) | Open pull requests count |
-| ![Closed PRs](https://img.shields.io/github/issues-pr-closed/timlinux/kartoza-grub-theme.svg) | Closed pull requests count |
+| ![License](https://img.shields.io/github/license/kartoza/kartoza-grub-theme.svg) | Repository license |
+| ![Open Issues](https://img.shields.io/github/issues/kartoza/kartoza-grub-theme.svg) | Open issues count |
+| ![Closed Issues](https://img.shields.io/github/issues-closed/kartoza/kartoza-grub-theme.svg) | Closed issues count |
+| ![Open PRs](https://img.shields.io/github/issues-pr/kartoza/kartoza-grub-theme.svg) | Open pull requests count |
+| ![Closed PRs](https://img.shields.io/github/issues-pr-closed/kartoza/kartoza-grub-theme.svg) | Closed pull requests count |
 
 ### ⭐️ Project Stars
 
-![Stars](https://starchart.cc/timlinux/kartoza-grub-theme.svg)
+![Stars](https://starchart.cc/kartoza/kartoza-grub-theme.svg)
 
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
+
 ## 📂 Folder Structure
 
 ```plaintext
 kartoza-grub-theme/
+  ├── 🎨 themes/             # GRUB themes collection
+  │   ├── 🗺️ kartoza/        # Kartoza custom GRUB theme
+  │   │   ├── 🖼️ assets/     # Images, fonts, icons for Kartoza
+  │   │   ├── ❄️ default.nix # Nix expression for Kartoza theme
+  │   │   ├── 📜 LICENSE     # License for Kartoza theme
+  │   │   └── 📖 README.md   # Info about Kartoza theme
+  │   └── 🛰️ qgis/           # QGIS custom GRUB theme
+  │       ├── 🖼️ assets/     # Images, fonts, icons for QGIS
+  │       ├── ❄️ default.nix # Nix expression for QGIS theme
+  │       ├── 📜 LICENSE     # License for QGIS theme
+  │       └── 📖 README.md   # Info about QGIS theme
+  ├── 🛠️ utils/              # Utility scripts and Nix helpers
+  │   ├── ❄️ develop.nix     # Dev environment setup
+  │   └── 🐚 prompt.sh       # Shell prompt helper
+  ├── 📦 setup-package.sh    # Packaging helper script
   ├── ❄️  flake.nix         # Main Nix flake configuration
   ├── 🔒  flake.lock        # Lock file for reproducible builds
-  ├── 📦  packages/         # Package definitions
-  │   ├── ⚙️  default.nix   # Default package configuration
-  │   └── 🛠️  utils/        # Utilities package
-  │       ├── ⚙️  default.nix # kartoza-grub-theme package definition
-  │       ├── 📋  README.md   # kartoza-grub-theme documentation
-  │       └── 🐚  kartoza-grub-theme.sh    # Main utilities script (1100+ lines)
   ├── 📜  LICENSE           # MIT license file
   ├── 📖  README.md         # This file
   ├── 📝  vscode.log        # VSCode configuration log
@@ -81,7 +91,7 @@ kartoza-grub-theme/
 Clone the repository and run locally:
 
 ```bash
-git clone https://github.com/timlinux/kartoza-grub-theme.git
+git clone https://github.com/kartoza/kartoza-grub-theme.git
 cd kartoza-grub-theme
 nix run
 ```
@@ -92,10 +102,10 @@ Run directly from GitHub without cloning:
 
 ```bash
 # Run the default utilities
-nix run github:timlinux/kartoza-grub-theme
+nix run github:kartoza/kartoza-grub-theme
 
 # Or specifically run the utils package
-nix run github:timlinux/kartoza-grub-theme#utils
+nix run github:kartoza/kartoza-grub-theme#utils
 ```
 
 ### 🔧 Development Environment
@@ -163,7 +173,7 @@ Have questions or feedback? Feel free to open an issue or submit a Pull Request!
 ## 🧑‍💻👩‍💻 Contributors
 
 - [Tim Sutton](https://github.com/timlinux) – Original author and maintainer
-- [Contributors](https://github.com/timlinux/kartoza-grub-theme/graphs/contributors) – See the full list of amazing contributors who have helped make this project possible.
+- [Contributors](https://github.com/kartoza/kartoza-grub-theme/graphs/contributors) – See the full list of amazing contributors who have helped make this project possible.
 
 ## 📦 Adding to Your Own Flake
 
@@ -227,7 +237,7 @@ Once installed, you can run the the package from anywhere in your system:
 utils
 
 # Or run directly if using nix run
-nix run github:timlinux/kartoza-grub-theme
+nix run github:kartoza/kartoza-grub-theme
 ```
 
 The utilities will be available system-wide and you can access all the system information tools, benchmarks, and management utilities through the beautiful terminal interface.
