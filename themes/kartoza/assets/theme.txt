@@ -8,7 +8,13 @@ title-text: ""
 message-font: "DejaVu Sans Regular 24"
 message-color: "#eff0f1"
 terminal-font: "Terminus Regular 24"
-terminal-box: "terminal_*.png"
+# terminal-box removed.  The `terminal_*.png` tiles ship as 30%-opaque
+# white — GRUB overlays them whenever it needs to display a message
+# (transitions, kernel loading notice, timeout countdown at times),
+# and their translucency lets the desktop wallpaper show through with
+# a light tint.  That was the "duplicate wallpaper in a box" we've
+# been chasing.  Removing the directive stops GRUB from drawing any
+# terminal overlay at all.
 
 # (Removed the "Grub Bootloader" and "Select an OS" labels — the
 # Kartoza splash background already communicates the context, so the
@@ -21,17 +27,14 @@ terminal-box: "terminal_*.png"
 # transition is visually continuous).  Top/height unchanged so the
 # menu is still vertically centred.
 + boot_menu {
-    # DIAGNOSTIC: shrunk from width=30%/height=40% to width=12%/height=8%
-    # so we can visibly tell whether the theme is being picked up at all.
-    # If the "wallpaper in a box" is still full-sized (30%x40%), the
-    # theme isn't being applied and the wrapper's relock silently failed.
-    # If the box shrinks to 12%x8%, the theme IS applied and the
-    # wallpaper isn't coming from the boot_menu container at all —
-    # some other component is drawing it.
+    # Menu positioned on the right side, over the geometric pattern
+    # part of the splash — same horizontal position as the Plymouth
+    # rotating logo so the GRUB→Plymouth transition is visually
+    # continuous.
     left = 60%
-    width = 12%
-    top = 45%
-    height = 8%
+    width = 30%
+    top = 30%
+    height = 40%
     icon_width = 48
     icon_height = 48
     item_height = 45
