@@ -10,39 +10,42 @@ message-color: "#eff0f1"
 terminal-font: "Terminus Regular 24"
 terminal-box: "terminal_*.png"
 
-+ label {
-    text = "Grub Bootloader"
-    font = "DejaVu Sans Regular 72"
-    color = "#eff0f1"
-    left = 50%-0
-    top = 15%
-    height = 20
-    width = 400
-    align = "center"
-}
+# (Removed the "Grub Bootloader" and "Select an OS" labels — the
+# Kartoza splash background already communicates the context, so the
+# extra text just crowded the composition.)
 
-+ label {
-    text = "Select an OS"
-    font = "DejaVu Sans Regular 28"
-    color = "#eff0f1"
-    top = 30%-30
-    left = 50%-80
-    align = "center"
-    width = 160
-    height = 40
-}
-
+# Boot menu — moved from left=20%/width=30% (centred ~35%, on top of
+# the Kartoza wordmark in the background) to left=60%/width=30%
+# (centred at 75%, over the geometric pattern on the right — same
+# horizontal position as the Plymouth rotating logo, so GRUB→Plymouth
+# transition is visually continuous).  Top/height unchanged so the
+# menu is still vertically centred.
 + boot_menu {
-    left = 20%
-    width = 30%
-    top = 30%
-    height = 40%
+    # DIAGNOSTIC: shrunk from width=30%/height=40% to width=12%/height=8%
+    # so we can visibly tell whether the theme is being picked up at all.
+    # If the "wallpaper in a box" is still full-sized (30%x40%), the
+    # theme isn't being applied and the wrapper's relock silently failed.
+    # If the box shrinks to 12%x8%, the theme IS applied and the
+    # wallpaper isn't coming from the boot_menu container at all —
+    # some other component is drawing it.
+    left = 60%
+    width = 12%
+    top = 45%
+    height = 8%
     icon_width = 48
     icon_height = 48
     item_height = 45
     item_padding = 2
     item_icon_space = 8
     item_spacing = 50
+    # menu_pixmap_style restored, this time pointing at the newly
+    # opaque boot_menu_*.png tiles (solid #1e2022 charcoal, matching
+    # the splash's dark panel).  Without an explicit pixmap style —
+    # or with transparent tiles — GRUB falls back to painting the
+    # desktop-image scaled into the menu box, producing the
+    # "duplicate wallpaper in a box" artifact the user reported.
+    # An opaque menu box overrides that fallback and gives the menu
+    # a clean, brand-consistent container.
     menu_pixmap_style = "boot_menu_*.png"
     item_font = "DejaVu Sans Regular 28"
     item_color = "#757575"
